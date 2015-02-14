@@ -8,7 +8,12 @@
 module.exports = {
 
   attributes: {
-
+  	name: 'string',
+    address: 'string',
+    phone: {
+	   type: 'string',
+	   defaultsTo: '000-000-000'
+	}
   }
 };
 
