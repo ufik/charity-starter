@@ -9,10 +9,10 @@ module.exports = {
 
   attributes: {
   	name: 'string',
-    address: 'string',
-    phone: {
+  	address: 'string',
+  	phone:{
 	   type: 'string',
-	   defaultsTo: '000-000-000'
+	   defaultsTo: '000-000-0000'
 	}
   }
 };
