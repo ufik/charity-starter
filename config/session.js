@@ -24,6 +24,7 @@ module.exports.session = {
   secret: 'c451024b5b58a2ab26b1480d1747d1a8',
 
 
+
   /***************************************************************************
   *                                                                          *
   * Set the session cookie expire time The maxAge is set by milliseconds,    *

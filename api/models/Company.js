@@ -21,5 +21,6 @@ module.exports = {
 		   defaultsTo: '000-000-0000'
 		}
 	}
+
 };
 

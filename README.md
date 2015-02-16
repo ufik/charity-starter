@@ -1,3 +1,5 @@
-# charity-starter2
+
+# charity-starter
 
 a [Sails](http://sailsjs.org) application
+

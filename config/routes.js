@@ -33,9 +33,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage',
-    'post /Company': 'CompanyController.create'
-
+    view: 'homepage'
   }
 
 
