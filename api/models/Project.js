@@ -12,7 +12,7 @@ module.exports = {
   	description: 'text',
   	targetAmount: 'string',
   	currentAmount: 'string',
-  	status: 'integer'
+  	status: 'integer',
   	address: 'text'
   }
   
