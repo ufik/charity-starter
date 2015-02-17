@@ -33,7 +33,15 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'
+    view: 'homepage',
+  },
+  '/login': {
+      view:'login',
+  },
+  'post /login': {
+
+      controller: 'company',
+      action: 'passport_local'
   }
 
 

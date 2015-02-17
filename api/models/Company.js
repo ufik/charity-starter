@@ -19,6 +19,15 @@ module.exports = {
   		phone:{
 		   type: 'string',
 		   defaultsTo: '000-000-0000'
+		},
+		password: {
+  			type: 'string',
+  			required: true
+  		},
+  		email: {
+		   type: 'email',
+		   unique: true,
+		   required: true
 		}
 	}
 
