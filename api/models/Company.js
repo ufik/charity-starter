@@ -5,8 +5,11 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
-module.exports = {
+var bcrypt = require('bcrypt')
+var SALT_WORK_FACTOR = 10;
+var MIN_PASSWORD_LENGTH = 8;
 
+module.exports = {
   	attributes: {
 		name: {
 			type: 'string',
@@ -22,14 +25,24 @@ module.exports = {
 		},
 		password: {
   			type: 'string',
-  			required: true
+  			required: true,
+  			minLength: 8
   		},
   		email: {
 		   type: 'email',
 		   unique: true,
 		   required: true
 		}
-	}
+	},
 
+	beforeCreate: function(values, cb) {
+		bcrypt.hash(values.password, SALT_WORK_FACTOR, function(err, hash){
+            if(err) {
+            	throw err;
+            }
+
+            values.password = hash;
+            cb();
+        });
+	  }
 };
-
