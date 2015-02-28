@@ -6,14 +6,18 @@
 */
 
 var Money = require('js-money');
+var Validators = require('../validators/Validators');
 
 module.exports = {
+  identity: 'project',
+
+  schema: true,
+
   types: {
-    money: function (money) {
-      
-      return money.amount && money.currency;
-    }
+    money: Validators.money,
+    address: Validators.address
   },
+
   attributes: {
     name: {
       type: 'string',
@@ -23,17 +27,9 @@ module.exports = {
       type: 'string',
       required: true
     },
-    street: {
-      type: 'string',
-    },
-    city: {
-      type: 'string',
-    },
-    postcode: {
-      type: 'string',
-    },
-    country: {
-      type: 'string',
+    address: {
+      type: 'json',
+      address: true
     },
     targetAmount: {
       type: 'json',
@@ -46,18 +42,19 @@ module.exports = {
     status: {
       type: 'integer',
     },
-    address: {
-      type: 'string',
-      required: true
+    company: {
+      model: 'company'
     }
   },
 
-  createMoneyObjects: function(values) {
-    values.targetAmount = new Money(values.targetAmount.amount, values.targetAmount.currency);
-    values.currentAmount = new Money(values.currentAmount.amount, values.currentAmount.currency);
+  createMoneyObjects: function (values) {
+    var targetAmount = JSON.parse(values.targetAmount);
+
+    values.targetAmount = new Money(targetAmount.amount, targetAmount.currency);
+    values.currentAmount = new Money(0, targetAmount.currency);
   },
 
-  beforeUpdate: function () {
+  beforeUpdate: function (values, cb) {
     this.createMoneyObjects(values);
     cb();
   },

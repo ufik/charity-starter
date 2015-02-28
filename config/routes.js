@@ -39,9 +39,8 @@ module.exports.routes = {
       view:'login',
   },
   'post /login': {
-
       controller: 'company',
-      action: 'passport_local'
+      action: 'passportLocal'
   }
 
 

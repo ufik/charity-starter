@@ -10,23 +10,25 @@
 var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 
+var Validators = require('../validators/Validators');
+
 module.exports = {
+  identity: 'company',
+
+  schema: true,
+
+  types: {
+    address: Validators.address
+  },
+
   attributes: {
     name: {
       type: 'string',
       required: true
     },
-    street: {
-      type: 'string',
-    },
-    city: {
-      type: 'string',
-    },
-    postcode: {
-      type: 'string',
-    },
-    country: {
-      type: 'string',
+    address: {
+      type: 'json',
+      address: true
     },
     phone: {
       type: 'string',
@@ -41,6 +43,10 @@ module.exports = {
       type: 'email',
       unique: true,
       required: true
+    },
+    projects: {
+      collection: 'project',
+      via: 'company'
     }
   },
 
