@@ -1,0 +1,13 @@
+<template name="Home">
+  <h1>Latest projects</h1>
+
+  <div class="row">
+	  {{#each projects}}
+	  	<div class="col-md-4">
+	  		<h2>{{title}}</h2>
+	  		<p>{{description}}</p>
+	  		<a href="/projects/{{title}}">More info</a>
+	  	</div>
+	  {{/each}}
+  </div>
+</template>

@@ -1,0 +1,29 @@
+<template name="projectList">
+  <h1>List of projects  {{#if currentUser}}<a href="/projects/create" class="btn btn-fab btn-raised btn-material-green"><i class="mdi-content-add"></i><div class="ripple-wrapper"></div></a>{{/if}}</h1>
+
+  <table class="table table-hover">
+  	<thead>
+  		<tr>
+  			<th>Title</th>
+  			<th>Target amount/current amount</th>
+  			<th>Action</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		{{#each projects}}
+  			{{> projectItem}}
+  		{{/each}}
+  	</tbody>
+  </table>
+
+</template>
+
+<template name="projectItem">
+	<tr>
+  		<td>{{title}}</td>
+  		<td>{{targetAmount}}/{{currentAmount}}</td>
+  		<th>
+  			{{#if isOwner}}<a class="btn btn-danger delete">&times;</a>{{/if}}
+  		</th>
+	</tr>
+</template>
