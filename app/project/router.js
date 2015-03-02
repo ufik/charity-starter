@@ -10,7 +10,7 @@ Router.route('/projects/:name', {
   action: 'detail'
 });
 
-Router.route('/projects/create', {
+Router.route('/project-create', {
   name: 'projectForm',
   controller: 'ProjectController',
   action: 'create'
