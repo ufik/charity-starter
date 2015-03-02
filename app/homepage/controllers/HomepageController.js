@@ -16,7 +16,6 @@ if (Meteor.isClient) {
 
 	Template.user.helpers({
 		labelClass: function() {
-			console.log(this);
 		  if (this.status && this.status.idle)
 		    return "label-warning"
 		  else if (this.status && this.status.online)
@@ -35,6 +34,6 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 	Meteor.publish("userStatus", function() {
-	  return Meteor.users.find();
+	  return Meteor.users.find({'status.online': true});
 	});
 }

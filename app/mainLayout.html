@@ -29,10 +29,15 @@
       {{> yield}}
     </article>
 
-    {{#each usersOnline}}
-        {{> user}}
-    {{/each}}
-  </div>
+    <div class="panel panel-primary">
+          <div class="panel-heading">Users</div>
+          <div class="panel-body">
+            {{#each usersOnline}}
+                {{> user}}
+            {{/each}}
+          </div>
+        </div>
+    </div>
 </template>
 
 <template name="user">
