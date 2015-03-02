@@ -28,5 +28,13 @@
     <article>
       {{> yield}}
     </article>
+
+    {{#each usersOnline}}
+        {{> user}}
+    {{/each}}
   </div>
+</template>
+
+<template name="user">
+    <span class="label {{lable}}">{{#each emails}}{{address}}{{/each}}</span>
 </template>
